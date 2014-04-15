@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SocialTangoViewController : UIViewController
+@interface SocialTangoViewController : UIViewController <UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIWebView *webViewPhone;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (strong, nonatomic) IBOutlet UISwipeGestureRecognizer *swiperG;
 
 @end

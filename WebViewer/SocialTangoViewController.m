@@ -9,6 +9,9 @@
 #import "SocialTangoViewController.h"
 
 @implementation SocialTangoViewController
+@synthesize webViewPhone; 
+@synthesize webView;
+@synthesize swiperG;
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,11 +24,28 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
+    [webViewPhone loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
+}
+
+-(void) backHandler: (id)sender
+{
+    [self.webView goBack];
+    [self.webViewPhone goBack];
+}
+
+
+-(void) forwardHandler: (id)sender
+{
+    [self.webView goForward];
+    [self.webViewPhone goForward];
 }
 
 - (void)viewDidUnload
 {
+    [self setWebView:nil];  
+    [self setSwiperG:nil]; 
+    [self setWebViewPhone:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -35,9 +55,40 @@
 {
     [super viewWillAppear:animated];
 }
+//pad url handler
+- (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
+        [self urlHandler :[url absoluteString]:request];
+        return NO;
+    }
+    return YES;
+}
+
+//phone url handler
+- (BOOL)webViewPhone:(UIWebView*)webViewPhone shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSURL *url = [request URL];
+    if ( navigationType == UIWebViewNavigationTypeLinkClicked ) {
+       [self urlHandler :[url absoluteString]:request];
+        return NO;
+    }
+    return YES;
+}
+
+//common url handler for both device types
+- (void)urlHandler:(NSString*)absoult :(NSURLRequest*)req
+{
+    //NSLog(@"url %lu %lu", (unsigned long)[absoult rangeOfString:@"socialtango"].location , (unsigned long)[absoult rangeOfString:@"https://cdn.embedly.com"].location);
+    if ([absoult rangeOfString:@"socialtango"].location == NSNotFound && [absoult rangeOfString:@"embedly"].location == NSNotFound && [absoult rangeOfString:@"about:blank"].location == NSNotFound ) {
+        //NSLog(@"url %@",absoult);
+        [[UIApplication sharedApplication] openURL:req.URL];
+    }
+}
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    webView.delegate = self;
+    webViewPhone.delegate = self;
     [super viewDidAppear:animated];
 }
 
@@ -59,6 +110,5 @@
     } else {
         return YES;
     }
-}
-
+} 
 @end
