@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
     [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
     [webViewPhone loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
 }
@@ -33,7 +34,6 @@
     [self.webView goBack];
     [self.webViewPhone goBack];
 }
-
 
 -(void) forwardHandler: (id)sender
 {
