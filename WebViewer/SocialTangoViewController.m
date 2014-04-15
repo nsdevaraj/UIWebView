@@ -15,8 +15,7 @@
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Release any cached data, images, etc that aren't in use.
+    [super didReceiveMemoryWarning]; 
 }
 
 #pragma mark - View lifecycle
@@ -47,8 +46,6 @@
     [self setSwiperG:nil]; 
     [self setWebViewPhone:nil];
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (void)viewWillAppear:(BOOL)animated
