@@ -24,8 +24,8 @@
 {
     [super viewDidLoad];
     [[NSURLCache sharedURLCache] removeAllCachedResponses];
-    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
-    [webViewPhone loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://socialtango.cognizant.com"]]];
+    [webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://nsdevaraj.github.io/fm"]]];
+    [webViewPhone loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://nsdevaraj.github.io/fm"]]];
 }
 
 -(void) backHandler: (id)sender
@@ -76,7 +76,7 @@
 - (void)urlHandler:(NSString*)absoult :(NSURLRequest*)req
 {
     //NSLog(@"url %lu %lu", (unsigned long)[absoult rangeOfString:@"socialtango"].location , (unsigned long)[absoult rangeOfString:@"https://cdn.embedly.com"].location);
-    if ([absoult rangeOfString:@"socialtango"].location == NSNotFound && [absoult rangeOfString:@"embedly"].location == NSNotFound && [absoult rangeOfString:@"about:blank"].location == NSNotFound ) {
+    if ([absoult rangeOfString:@"nsdevaraj"].location == NSNotFound && [absoult rangeOfString:@"embedly"].location == NSNotFound && [absoult rangeOfString:@"about:blank"].location == NSNotFound ) {
         //NSLog(@"url %@",absoult);
         [[UIApplication sharedApplication] openURL:req.URL];
     }

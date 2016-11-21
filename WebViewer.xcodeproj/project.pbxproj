@@ -23,15 +23,15 @@
 		FE5AF60114F65C98009414B0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FE5AF60314F65C98009414B0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FE5AF60514F65C98009414B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FE5AF60914F65C98009414B0 /* WebViewer-Info.plist */ = {isa = PBXFileReference; path = "WebViewer-Info.plist"; sourceTree = "<group>"; };
+		FE5AF60914F65C98009414B0 /* WebViewer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "WebViewer-Info.plist"; sourceTree = "<group>"; };
 		FE5AF60B14F65C98009414B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		FE5AF60D14F65C98009414B0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FE5AF60F14F65C98009414B0 /* WebViewer-Prefix.pch */ = {isa = PBXFileReference; path = "WebViewer-Prefix.pch"; sourceTree = "<group>"; };
-		FE5AF61014F65C98009414B0 /* SocialTangoAppDelegate.h */ = {isa = PBXFileReference; path = SocialTangoAppDelegate.h; sourceTree = "<group>"; };
+		FE5AF60F14F65C98009414B0 /* WebViewer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WebViewer-Prefix.pch"; sourceTree = "<group>"; };
+		FE5AF61014F65C98009414B0 /* SocialTangoAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialTangoAppDelegate.h; sourceTree = "<group>"; };
 		FE5AF61114F65C98009414B0 /* SocialTangoAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialTangoAppDelegate.m; sourceTree = "<group>"; };
 		FE5AF61414F65C98009414B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPhone.storyboard; sourceTree = "<group>"; };
 		FE5AF61714F65C98009414B0 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard_iPad.storyboard; sourceTree = "<group>"; };
-		FE5AF61914F65C98009414B0 /* SocialTangoViewController.h */ = {isa = PBXFileReference; path = SocialTangoViewController.h; sourceTree = "<group>"; };
+		FE5AF61914F65C98009414B0 /* SocialTangoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocialTangoViewController.h; sourceTree = "<group>"; };
 		FE5AF61A14F65C98009414B0 /* SocialTangoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocialTangoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +128,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0420;
+				TargetAttributes = {
+					FE5AF5FC14F65C98009414B0 = {
+						DevelopmentTeam = E97D29467W;
+					};
+				};
 			};
 			buildConfigurationList = FE5AF5F714F65C98009414B0 /* Build configuration list for PBXProject "WebViewer" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -250,10 +255,13 @@
 		FE5AF61F14F65C98009414B0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewer/WebViewer-Prefix.pch";
 				INFOPLIST_FILE = "WebViewer/WebViewer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -261,10 +269,13 @@
 		FE5AF62014F65C98009414B0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "WebViewer/WebViewer-Prefix.pch";
 				INFOPLIST_FILE = "WebViewer/WebViewer-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -288,6 +299,7 @@
 				FE5AF62014F65C98009414B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
